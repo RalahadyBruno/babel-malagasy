@@ -1,0 +1,58 @@
+The LaTeX Project Public License
+=================================
+
+LPPL Version 1.3c 2008-05-04
+
+Copyright 1999 2002-2008 LaTeX3 Project
+    Everyone is allowed to distribute verbatim copies of this
+    license document, but modification of it is not allowed.
+
+
+PREAMBLE
+========
+
+The LaTeX Project Public License (LPPL) is the primary license under
+which the base LaTeX distribution is distributed.
+
+You may use this license for any work of which you hold the
+copyright and which you wish to distribute. This license may be
+particularly suitable if your work is TeX-related (such as a
+LaTeX package), but it is written in such a way that you can use
+it even if your work is unrelated to TeX.
+
+The full text of the license is available from the LaTeX Project
+Public License website at:
+
+    https://www.latex-project.org/lppl/lppl-1-3c/
+
+This LICENSE file is a copy of that license, applied to the
+babel-malagasy project ("the Work"). See babel-malagasy.dtx for
+the full copyright and license notice, and README.md for who
+currently maintains the Work.
+
+WHO IS THE MAINTAINER
+======================
+
+The Current Maintainer of babel-malagasy is:
+
+    RALAHADY Bruno Bakys <ralahadybru@yahoo.fr>
+
+This work has the LPPL maintenance status "author-maintained".
+
+WHAT THE LPPL LETS YOU DO
+==========================
+
+In short, the LPPL lets you:
+
+  * use the Work as-is, for any purpose;
+  * distribute verbatim copies of the Work;
+  * distribute a modified version of the Work, PROVIDED you
+    either rename it (so it no longer collides with the
+    original babel-malagasy package name and files) or clearly
+    mark it as a modified version and follow the other
+    conditions in section 6 of the full license text linked
+    above.
+
+This summary is not a substitute for the license itself; the
+full LPPL 1.3c text at the URL above is the binding license for
+this Work.

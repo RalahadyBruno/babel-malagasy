@@ -1,0 +1,18 @@
+% testfiles/hyphenation.lvt
+% EXPERIMENTAL / NOT VERIFIED: see docs/linguistic-policy.md.
+% This test only records what \showhyphens currently reports;
+% it does not assert a specific "correct" breakpoint, because
+% during development this did not behave as a naive reading of
+% the \hyphenation{} exception list would predict. The test
+% exists so future changes to babel or to this package's
+% hyphenation code show up as a diff to review, not as a
+% silently-assumed pass.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\begin{document}
+\selectlanguage{malagasy}
+\showhyphens{fampianarana}
+\showhyphens{fikarohana}
+\end{document}

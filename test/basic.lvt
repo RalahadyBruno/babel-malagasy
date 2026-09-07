@@ -1,0 +1,16 @@
+% testfiles/basic.lvt
+% Loads babel-malagasy and checks \today and \malagasyweekdayname
+% render the expected Malagasy text. \today is forced into an
+% overfull \hbox (via \hsize=1pt) so its expansion is echoed into
+% the .log for comparison, because \today is not safe to use
+% inside \message (its ini-locale implementation is not
+% fully-expandable; see docs/linguistic-policy.md).
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\begin{document}
+\selectlanguage{malagasy}
+\begingroup\parindent0pt\hsize=1pt\noindent TODAY:\today\par\endgroup
+\begingroup\parindent0pt\hsize=1pt\noindent WEEKDAY3:\malagasyweekdayname{3}\par\endgroup
+\end{document}

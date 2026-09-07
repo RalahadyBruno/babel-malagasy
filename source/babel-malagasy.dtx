@@ -1,0 +1,268 @@
+% \iffalse meta-comment
+%
+% File: babel-malagasy.dtx
+%
+% Copyright (C) 2026 RALAHADY Bruno Bakys.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License (LPPL), either
+% version 1.3c of this license or (at your option) any later
+% version. The latest version of this license is in the file:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% This work has the LPPL maintenance status "author-maintained".
+%
+% The Current Maintainer of this work is RALAHADY Bruno Bakys
+% <ralahadybru@yahoo.fr> (see README.md).
+%
+% This work consists of the file babel-malagasy.dtx and the
+% derived file babel-malagasy.sty.
+%
+% STATUS: EXPERIMENTAL (v0.1.0). See README.md and
+% docs/linguistic-policy.md for what is IMPLEMENTED/TESTED versus
+% EXPERIMENTAL/NOT VERIFIED. This package has NOT been submitted
+% to CTAN and is NOT part of TeX Live at this stage.
+%
+% IMPORTANT ARCHITECTURAL NOTE (read this before touching the code):
+% Modern babel (>= 3.4x core; confirmed here on babel v24.1 from
+% TeX Live 2023) already ships CLDR-derived locale DATA for
+% Malagasy as an ".ini" locale: locale/mg/babel-mg.ini and
+% locale/mg/babel-malagasy.tex, reachable via \babelprovide.
+% That data gives correct months/days/\today, but its [captions]
+% and [captions.licr] sections are shipped EMPTY. This was
+% discovered empirically while preparing this package (see
+% docs/linguistic-policy.md), and it means the right way to add
+% Malagasy captions is the officially documented user-facing
+% command \setlocalecaption{malagasy}{<name>}{<value>}, NOT a
+% hand-written legacy .ldf file with \LdfInit/\ldf@finish. An
+% earlier draft of this package did write such a .ldf; it was
+% discarded after testing showed it was the wrong approach here:
+% `\usepackage[malagasy]{babel}` alone raises "Unknown option
+% 'malagasy'" in this installation, while
+% `\babelprovide[import]{malagasy}` plus \setlocalecaption
+% works cleanly with no errors (see testfiles/basic.lvt and
+% docs/linguistic-policy.md, "Architecture / what we tried
+% first").
+%
+%<*driver>
+\ProvidesFile{babel-malagasy.dtx}
+\iffalse
+\fi
+\NeedsTeXFormat{LaTeX2e}
+\documentclass{ltxdoc}
+\usepackage{doc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+\DocInput{babel-malagasy.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number)  \#
+%   Dollar        \$     Percent       \%     Ampersand      \&
+%   Acute accent  \'     Left paren    \(     Right paren    \)
+%   Asterisk      \*     Plus          \+     Comma          \,
+%   Minus         \-     Point         \.     Solidus        \/
+%   Colon         \:     Semicolon     \;     Less than      \<
+%   Equals        \=     Greater than  \>     Question mark  \?
+%   Commercial at \@     Left bracket  \[     Backslash      \\
+%   Right bracket \]     Circumflex    \^     Underscore     \_
+%   Grave accent  \`     Left brace    \{     Vertical bar   \|
+%   Right brace   \}     Tilde         \~}
+%
+% \GetFileInfo{babel-malagasy.dtx}
+% \title{The \textsf{babel-malagasy} package\thanks{This file has
+%   version number \fileversion, last revised \filedate.}}
+% \author{RALAHADY Bruno Bakys \\ \texttt{ralahadybru@yahoo.fr}}
+% \date{\filedate}
+% \maketitle
+%
+% \section{Introduction}
+%
+% \textsf{babel-malagasy} completes Malagasy (BCP~47 tag
+% \texttt{mg}) support in the \textsf{babel} system. It does
+% \emph{not} reimplement a language definition file: current
+% \textsf{babel} already provides a Malagasy locale (dates,
+% month/weekday names, from the Unicode CLDR) reachable with
+% \cs{babelprovide}, but ships that locale's captions
+% (``Chapter'', ``Contents'', \ldots) empty. This package fills
+% them in with reviewed Malagasy terms using
+% \cs{setlocalecaption}, the officially documented mechanism for
+% this exact situation (see the \textsf{babel} manual and
+% ``Using \cs{babelprovide} to modify or extend locales'' at
+% \url{https://latex3.github.io/babel/}).
+%
+% \textbf{Usage}
+%\begin{verbatim}
+%\usepackage{babel} % or \usepackage[main=...]{babel}
+%\usepackage{babel-malagasy}
+%...
+%\selectlanguage{malagasy}
+%\foreignlanguage{malagasy}{...}
+%\end{verbatim}
+%
+% \textbf{Status (v0.1.0), verified in this environment
+% (pdfTeX, TeX Live 2023, babel v24.1):}
+% \begin{itemize}
+% \item IMPLEMENTED / TESTED: loading the locale, \cs{today}
+%   (via CLDR month names), and all 21 standard captions.
+% \item EXPERIMENTAL / NOT VERIFIED: hyphenation. No
+%   statistically generated patterns exist for Malagasy in
+%   hyph-utf8 at the time of writing. A manual
+%   \cs{hyphenation} exception list is loaded, but a
+%   \cs{showhyphens} test during development did not clearly
+%   confirm it is honoured for the \texttt{malagasy} language
+%   slot in this babel version (some ini-only locales without
+%   compiled patterns may fall back to whatever patterns happen
+%   to be active). Treat hyphenation of Malagasy text with this
+%   package as unreliable until this is investigated further.
+% \item NOT VERIFIED: behaviour together with other
+%   \texttt{ini}-only languages loaded via \texttt{provide=*} at
+%   the \textsf{babel} package-option level; this environment's
+%   TeX Live install lacks several contributed language
+%   collections (e.g.\ \textsf{babel-french}'s \texttt{french}
+%   option itself errors here as ``Unknown option''), so a full
+%   three-language French/Malagasy/English test could not be
+%   completed. \cs{babelprovide}\texttt{[import]\{malagasy\}}
+%   together with \texttt{english} \emph{was} verified to work.
+% \end{itemize}
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \subsection{Identification}
+%    \begin{macrocode}
+%<*package>
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{babel-malagasy}
+  [2026/08/29 v0.1.0 Completes Malagasy captions for babel]
+%    \end{macrocode}
+%
+% \subsection{Loading babel and the Malagasy locale}
+%
+% We require \textsf{babel} itself (a document may already have
+% loaded it with other languages; \cs{RequirePackage} is a no-op
+% in that case) and then import the Malagasy CLDR locale data
+% that babel already ships. \texttt{import} is the standard
+% \cs{babelprovide} key for reading an existing \texttt{.ini}
+% locale rather than defining a new one from scratch.
+%    \begin{macrocode}
+\RequirePackage{babel}
+\babelprovide[import]{malagasy}
+%    \end{macrocode}
+%
+% \subsection{Hyphenation minima}
+%
+% \cs{providehyphenmins} is a real, documented \textsf{babel}
+% core command (defined in \texttt{babel.sty}); it is safe to
+% call even though no Malagasy patterns are loaded. Its actual
+% signature takes the language name and a single two-digit
+% token (left and right hyphenation minima concatenated), not
+% three separate braced arguments as some legacy \texttt{.ldf}
+% files' documentation might suggest -- calling it as
+% \texttt{\{malagasy\}\{2\}\{2\}} was tried first and produced a
+% ``Missing \textbackslash begin\{document\}'' error, because the
+% stray third \texttt{\{2\}} was left sitting in the preamble;
+% see \texttt{docs/linguistic-policy.md}.
+%    \begin{macrocode}
+\providehyphenmins{malagasy}{22}
+%    \end{macrocode}
+%
+% \subsection{Captions}
+%
+% Each call below is the officially documented
+% \cs{setlocalecaption}\marg{locale}\marg{caption
+% name}\marg{value} command; using it is exactly what
+% \textsf{babel} itself suggests when a caption is unset (a
+% warning we saw ourselves while testing:
+% ``\texttt{\textbackslash contents not set for 'malagasy'.
+% Please, \textbackslash setlocalecaption\{malagasy\}\{contents\}\{..\}}'').
+% The caption names (\texttt{preface}, \texttt{ref},
+% \texttt{abstract}, \ldots) are \textsf{babel}'s own internal
+% names, taken from its ini file schema, not invented here.
+% Sources and confidence levels for each Malagasy string are in
+% \texttt{data/captions.csv} and
+% \texttt{docs/linguistic-policy.md}.
+%    \begin{macrocode}
+\setlocalecaption{malagasy}{preface}{Teny fanolorana}
+\setlocalecaption{malagasy}{ref}{Bibliografia}
+\setlocalecaption{malagasy}{abstract}{Famintinana}
+\setlocalecaption{malagasy}{bib}{Bibliografia}
+\setlocalecaption{malagasy}{chapter}{Toko}
+\setlocalecaption{malagasy}{appendix}{Fanampiny}
+\setlocalecaption{malagasy}{contents}{Fanoroan-takila}
+\setlocalecaption{malagasy}{listfigure}{Lisitry ny sary}
+\setlocalecaption{malagasy}{listtable}{Lisitry ny tabilao}
+\setlocalecaption{malagasy}{index}{Fanondroana}
+\setlocalecaption{malagasy}{figure}{Sary}
+\setlocalecaption{malagasy}{table}{Tabilao}
+\setlocalecaption{malagasy}{part}{Fizarana}
+\setlocalecaption{malagasy}{encl}{Rakitra atovana}
+\setlocalecaption{malagasy}{cc}{Kopia}
+\setlocalecaption{malagasy}{headto}{Ho an'i}
+\setlocalecaption{malagasy}{page}{Takila}
+\setlocalecaption{malagasy}{see}{Jereo}
+\setlocalecaption{malagasy}{also}{Jereo koa}
+\setlocalecaption{malagasy}{proof}{Porofo}
+\setlocalecaption{malagasy}{glossary}{Rakibolana}
+%    \end{macrocode}
+%
+% \subsection{Weekday names}
+%
+% \textsf{babel}'s Malagasy ini data already includes weekday
+% names (\texttt{days.wide.mon}, etc., used internally for
+% calendar-aware features), but there is no standard \textsf{babel}
+% \emph{user} command that prints ``the weekday of today'' the
+% way \cs{today} prints the date -- this is true of every
+% \textsf{babel} locale, not specific to Malagasy. We therefore
+% provide one small, clearly non-core convenience macro, taking
+% an ISO weekday number (1~=~Monday), using the same Malagasy
+% weekday names already verified for \cs{today} support
+% (tenymalagasy.gov.mg): Alatsinainy, Talata, Alarobia,
+% Alakamisy, Zoma, Sabotsy, Alahady.
+%    \begin{macrocode}
+\newcommand*{\malagasyweekdayname}[1]{%
+  \ifcase#1\relax
+    \or Alatsinainy\or Talata\or Alarobia\or Alakamisy%
+    \or Zoma\or Sabotsy\or Alahady%
+  \fi
+}
+%    \end{macrocode}
+%
+% \subsection{Hyphenation exceptions (experimental)}
+%
+% See the status note above: this is a manually reviewed
+% exception list for the words used in the test corpus and
+% example document, loaded while \texttt{malagasy} is the
+% selected language so the exceptions land on the right
+% \cs{language} exception table. It is \emph{not} a substitute
+% for real patterns and its effect was not conclusively
+% confirmed by testing (see \texttt{testfiles/hyphenation.lvt}).
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \bgroup
+  \ifx\selectlanguage\@undefined\else\selectlanguage{malagasy}\fi
+  \hyphenation{
+    tra-no ra-no o-lo-na ta-ny se-ko-ly bo-ky sa-ry
+    fam-pia-na-ra-na fi-ka-ro-ha-na fa-na-bea-za-na
+    fam-pan-dro-so-a-na fi-fan-drai-sa-na
+    fa-na-tan-te-ra-ha-na
+    in-for-ma-ti-ka al-go-rit-ma ma-te-ma-ti-ka
+    sta-tis-ti-ka pro-gra-ma tek-no-lo-jia
+    mpia-na-tra mpam-pia-na-tra o-ni-ver-si-te
+  }%
+  \egroup
+}
+%</package>
+%    \end{macrocode}
+%
+% \Finale

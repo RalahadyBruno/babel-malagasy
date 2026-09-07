@@ -1,0 +1,15 @@
+% testfiles/multilingual.lvt
+% Checks \foreignlanguage switching between malagasy and english
+% within one document. (French is not exercised here: this
+% environment's TeX Live has no "french" babel language
+% collection installed; see docs/linguistic-policy.md.)
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\begin{document}
+\selectlanguage{english}
+\begingroup\parindent0pt\hsize=1pt\noindent MAIN:\figurename\par\endgroup
+\foreignlanguage{malagasy}{\begingroup\parindent0pt\hsize=1pt\noindent FOREIGN:\figurename\par\endgroup}
+\begingroup\parindent0pt\hsize=1pt\noindent BACK:\figurename\par\endgroup
+\end{document}

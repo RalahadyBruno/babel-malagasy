@@ -1,0 +1,34 @@
+% testfiles/captions.lvt
+% Checks that every standard caption babel-malagasy sets renders
+% the expected Malagasy text. Captions are forced into overfull
+% \hbox warnings (see basic.lvt) rather than \message, because
+% babel's ini-locale caption macros are not \message-safe.
+\documentclass{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\newcommand*{\dumpcap}[2]{\begingroup\parindent0pt\hsize=1pt\noindent #1:#2\par\endgroup}
+\begin{document}
+\selectlanguage{malagasy}
+\dumpcap{PREFACE}{\prefacename}
+\dumpcap{REF}{\refname}
+\dumpcap{ABSTRACT}{\abstractname}
+\dumpcap{BIB}{\bibname}
+\dumpcap{CHAPTER}{\chaptername}
+\dumpcap{APPENDIX}{\appendixname}
+\dumpcap{CONTENTS}{\contentsname}
+\dumpcap{LISTFIGURE}{\listfigurename}
+\dumpcap{LISTTABLE}{\listtablename}
+\dumpcap{INDEX}{\indexname}
+\dumpcap{FIGURE}{\figurename}
+\dumpcap{TABLE}{\tablename}
+\dumpcap{PART}{\partname}
+\dumpcap{ENCL}{\enclname}
+\dumpcap{CC}{\ccname}
+\dumpcap{HEADTO}{\headtoname}
+\dumpcap{PAGE}{\pagename}
+\dumpcap{SEE}{\seename}
+\dumpcap{ALSO}{\alsoname}
+\dumpcap{PROOF}{\proofname}
+\dumpcap{GLOSSARY}{\glossaryname}
+\end{document}

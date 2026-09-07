@@ -1,0 +1,8 @@
+iso_number,french,malagasy,status,source
+1,lundi,Alatsinainy,validated,tenymalagasy.gov.mg
+2,mardi,Talata,validated,tenymalagasy.gov.mg
+3,mercredi,Alarobia,validated,tenymalagasy.gov.mg
+4,jeudi,Alakamisy,validated,tenymalagasy.gov.mg
+5,vendredi,Zoma,validated,tenymalagasy.gov.mg
+6,samedi,Sabotsy,validated,"tenymalagasy.gov.mg (variant: Asabotsy, used in babel's own CLDR data)"
+7,dimanche,Alahady,validated,tenymalagasy.gov.mg

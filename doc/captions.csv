@@ -1,0 +1,22 @@
+babel_key,malagasy,status,note
+preface,Teny fanolorana,validated,attested as a preface heading in a public document
+ref,Bibliografia,review,direct loanword; no native term found
+abstract,Famintinana,validated,common term for summary/abstract
+bib,Bibliografia,review,direct loanword; no native term found
+chapter,Toko,validated,attested in Malagasy textbooks
+appendix,Fanampiny,review,general sense "addition"; not confirmed in academic context
+contents,Fanoroan-takila,review,attested in a government document; "Fizahan-takila" also common
+listfigure,Lisitry ny sary,review,compositional construction; not attested verbatim
+listtable,Lisitry ny tabilao,review,compositional construction; depends on "tabilao" choice
+index,Fanondroana,review,regular derivation; not confirmed in an academic index
+figure,Sary,validated,common word for picture/figure
+table,Tabilao,review,loanword seen in statistical contexts; risk of confusion with furniture "latabatra"
+part,Fizarana,review,general sense "part/section"; overlaps with "toko" in some sources
+encl,Rakitra atovana,review,low-confidence placeholder
+cc,Kopia,review,plausible loanword, not confirmed for correspondence context
+headto,Ho an'i,review,provisional choice
+page,Takila,validated,confirmed via usage in "Fanoroan-takila"/"Fizahan-takila"
+see,Jereo,validated,common imperative for "look/see"
+also,Jereo koa,review,compositional; not attested verbatim
+proof,Porofo,review,plausible math loanword; not confirmed in a Malagasy textbook
+glossary,Rakibolana,validated,common term for dictionary/glossary

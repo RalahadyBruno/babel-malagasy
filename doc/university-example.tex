@@ -1,0 +1,126 @@
+% examples/university-example.tex
+%
+% Document universitaire malgache d'exemple pour babel-malagasy.
+% Sert de test d'intégration: page de titre, table des matières,
+% chapitres, sections, figure, tableau, bibliographie, document
+% bilingue malgache/français.
+%
+% STATUT: ce document a été réellement compilé avec pdflatex
+% pendant la préparation du projet (voir le rapport). Il ne
+% requiert que ce que babel-malagasy fournit réellement:
+% \babelprovide[import]{malagasy} + \setlocalecaption, chargés
+% via \usepackage{babel-malagasy}.
+%
+\documentclass[12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\babelprovide[import]{french} % see docs/linguistic-policy.md:
+  % this environment's TeX Live install has no "french" babel
+  % package option, but the ini locale loads fine directly.
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\title{Ny Fikarohana momba ny Fampiasana ny Teknolojia \\
+  ao amin'ny Fampianarana Ambaratonga Ambony \\
+  \large (Recherche sur l'usage des technologies \\
+  dans l'enseignement supérieur)}
+\author{Anarana Mpikaroka}
+\date{\today}
+
+\begin{document}
+\selectlanguage{malagasy}
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter{Fampidirana}
+
+Ity boky ity dia mikasika ny \emph{fampiasana ny teknolojia} ao
+amin'ny \emph{fampianarana ambaratonga ambony} eto Madagasikara.
+Ny \emph{fikarohana} natao dia nifantoka tamin'ny \emph{oniversite}
+telo, ary ny \emph{mpianatra} sy ny \emph{mpampianatra} no
+nandray anjara tamin'izany.
+
+Andro anio: \today.
+
+\section{Tanjona}
+
+Ny tanjon'ny \emph{fanatanterahana} ity \emph{fikarohana} ity dia
+ny hamantarana ny \emph{fampandrosoana} azo atao amin'ny
+\emph{fifandraisana} eo amin'ny \emph{sekoly} sy ny \emph{tany}
+manodidina azy, indrindra ao amin'ny sehatry ny
+\emph{informatika}, ny \emph{matematika}, ary ny
+\emph{statistika}.
+
+\chapter{Ny Fomba Fikarohana}
+
+Ny \emph{fanabeazana} momba ny \emph{teknolojia} dia mila
+\emph{fikarohana} lalina. Nampiasaina teo amin'ity asa ity ny
+\emph{programa} maromaro mba hamakafakana ny \emph{boky} sy ny
+\emph{sary} nangonina tany amin'ny \emph{trano} fampianarana
+isan-karazany. Ny \emph{rano} sy ny \emph{tany}, ho ohatra ihany,
+dia tsy nampiasaina afa-tsy ho fanoharana momba ny fototeny
+malagasy tsotra ampiasaina amin'ny fitsapana ny fizarana teny.
+
+\begin{figure}[h]
+  \centering
+  \fbox{\rule{0pt}{3cm}\rule{6cm}{0pt}}
+  \caption{Ohatra sary (placeholder) mampiseho ny \emph{olona}
+    mianatra \emph{algoritma} tsotra.}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    Oniversite & Mpianatra & Mpampianatra \\
+    \midrule
+    Oniversite A & 120 & 8 \\
+    Oniversite B & 95  & 6 \\
+    Oniversite C & 140 & 10 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Isan'ny mpianatra sy mpampianatra araka ny oniversite.}
+\end{table}
+
+\chapter{Fehin-kevitra}
+
+Ny \emph{fikarohana} dia nampiseho fa mbola misy ny
+\emph{fampandrosoana} tokony hatao amin'ny \emph{fanatanterahana}
+ny \emph{teknolojia} ao amin'ny \emph{fampianarana}. Toy izao no
+tokony ho fintinina:
+
+\begin{abstract}
+Ity \emph{famintinana} ity dia manamarina fa ny
+\emph{fampiasana} ny \emph{teknolojia} ao amin'ny
+\emph{fampianarana} ambaratonga ambony eto Madagasikara dia
+mbola mitaky \emph{fikarohana} bebe kokoa.
+\end{abstract}
+
+\appendix
+\chapter{Fanampiny statistika}
+
+Jereo ny \tablename~2.1 etsy ambony.
+
+\selectlanguage{french}
+\chapter*{Résumé en français}
+\addcontentsline{toc}{chapter}{Résumé en français}
+
+Ce chapitre, en français, illustre le passage d'une langue à
+l'autre au sein d'un même document, via
+\texttt{\textbackslash selectlanguage}. \foreignlanguage{malagasy}{Ary
+ity fehezanteny ity dia amin'ny teny malagasy}, insérée localement
+avec \texttt{\textbackslash foreignlanguage}.
+
+\selectlanguage{malagasy}
+
+\begin{thebibliography}{9}
+\bibitem{ex1} Anarana Mpanoratra, \emph{Lohateny boky},
+  Antananarivo, 2024.
+\end{thebibliography}
+
+\end{document}

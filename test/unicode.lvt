@@ -1,0 +1,13 @@
+% testfiles/unicode.lvt
+% Checks that UTF-8 Malagasy text (including the apostrophe used
+% in elided words, e.g. "amin'ny") comes through pdfTeX/inputenc
+% unharmed when babel-malagasy is loaded.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\begin{document}
+\selectlanguage{malagasy}
+\begingroup\parindent0pt\hsize=1pt\noindent SAMPLE:amin'ny fampianarana\par\endgroup
+\begingroup\parindent0pt\hsize=1pt\noindent HEADTO:\headtoname\par\endgroup
+\end{document}

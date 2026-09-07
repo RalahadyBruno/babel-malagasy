@@ -1,0 +1,16 @@
+% testfiles/dates.lvt
+% Checks \today under malagasy and after switching back to
+% english, to make sure switching languages back and forth does
+% not corrupt babel's state.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel-malagasy}
+\begin{document}
+\selectlanguage{malagasy}
+\begingroup\parindent0pt\hsize=1pt\noindent MG1:\today\par\endgroup
+\selectlanguage{english}
+\begingroup\parindent0pt\hsize=1pt\noindent EN:\today\par\endgroup
+\selectlanguage{malagasy}
+\begingroup\parindent0pt\hsize=1pt\noindent MG2:\today\par\endgroup
+\end{document}
