@@ -47,8 +47,7 @@ Environnement de test : pdfTeX, TeX Live 2023, babel v24.1.
 | pdfLaTeX | **TESTED** |
 | XeLaTeX / LuaLaTeX | **NOT VERIFIED** dans cette session |
 | Document à 3 langues (français+malgache+anglais) | **NOT VERIFIED** — l'installation TeX Live utilisée ici n'a pas la collection de langue française de babel ; anglais+malgache, en revanche, a été testé avec succès |
-| Acceptation CTAN / intégration TeX Live | **INTEGRE** — 
-Le package babel-malagasy est désormais contenu dans TeX Live |
+| Acceptation CTAN / intégration TeX Live | **INTEGRE** — Le package babel-malagasy est désormais contenu dans TeX Live |
 
 Voir `docs/linguistic-policy.md` pour le détail de chaque choix
 terminologique (avec statut `validated` ou `review`).
